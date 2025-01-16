@@ -17,7 +17,7 @@ import { SITE_TITLE, SITE_DESCRIPTION } from '../consts'
 	<body class="w-screen h-screen overflow-hidden bg-gradient-to-r from-fuchsia-800 to-fuchsia-900">
 		<main class="w-full sm:w-[640px] h-full mx-auto flex flex-col justify-between bg-gradient-to-b from-slate-50 to-slate-200 overflow-y-scroll">
 			<Header />
-			<section class="px-3">
+			<section class="flex-1">
 				<slot />
 			</section>
 			<Footer />
@@ -26,17 +26,17 @@ import { SITE_TITLE, SITE_DESCRIPTION } from '../consts'
 </html>
 
 <style>
-	/* global window */
-	main::-webkit-scrollbar {
-		/* display: none; */
-		width: 4px;
-		height: 8px;
-		background-color: #763a6d; /* or add it to the track */
-	}
-	main::-webkit-scrollbar-thumb {
-		background: #d922be;
-	}
-	body {
-		overflow-x: hidden; /* hide horizontal scrollbar */
-	}
+/* global window */
+main::-webkit-scrollbar {
+	/* display: none; */
+	width: 4px;
+	height: 8px;
+	background-color: #763a6d; /* or add it to the track */
+}
+main::-webkit-scrollbar-thumb {
+	background: #d922be;
+}
+body {
+	overflow-x: hidden; /* hide horizontal scrollbar */
+}
 </style>

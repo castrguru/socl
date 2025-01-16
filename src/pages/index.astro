@@ -7,5 +7,22 @@ import Layout from '../layouts/Framed.astro'
 ---
 
 <Layout>
-	<Welcome />
+	<!-- <Welcome /> -->
+	<iframe
+		src="https://steffiedeleeuw.com/"
+		class="w-full h-full border-2 border-red-500"
+	/>
 </Layout>
+
+<style>
+/* global window */
+iframe::-webkit-scrollbar {
+	/* display: none; */
+	width: 4px;
+	height: 8px;
+	background-color: #763a6d; /* or add it to the track */
+}
+iframe::-webkit-scrollbar-thumb {
+	background: #d922be;
+}
+</style>
