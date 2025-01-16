@@ -1,0 +1,42 @@
+---
+// import Footer from '../components/Footer.astro'
+// import Header from '../components/Header.astro'
+
+import BaseHead from '../components/BaseHead.astro'
+import Header from '../components/Header.astro'
+import Footer from '../components/Footer.astro'
+import { SITE_TITLE, SITE_DESCRIPTION } from '../consts'
+---
+
+<!doctype html>
+<html lang="en">
+	<head>
+		<BaseHead title={SITE_TITLE} description={SITE_DESCRIPTION} />
+	</head>
+
+	<body class="w-screen h-screen overflow-hidden bg-gradient-to-r from-fuchsia-900 to-rose-900">
+		<main class="w-full sm:w-[640px] h-full mx-auto flex flex-col justify-between bg-gradient-to-b from-slate-50 to-slate-200 overflow-y-scroll">
+			<Header />
+			<section class="px-3">
+				<slot />
+			</section>
+			<Footer />
+		</main>
+	</body>
+</html>
+
+<style>
+	/* global window */
+	main::-webkit-scrollbar {
+		/* display: none; */
+		width: 4px;
+		height: 8px;
+		background-color: #763a6d; /* or add it to the track */
+	}
+	main::-webkit-scrollbar-thumb {
+		background: #d922be;
+	}
+	body {
+		overflow-x: hidden; /* hide horizontal scrollbar */
+	}
+</style>

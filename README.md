@@ -1,4 +1,4 @@
-# Frameify
+# Frameify by Castr GÜRŲ
 
 ### https://frameify.xyz
 
