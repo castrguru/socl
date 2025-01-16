@@ -1,7 +1,5 @@
 ---
-// Import the global.css file here so that it is included on
-// all pages through the use of the <BaseHead /> component.
-// import '../styles/global.css'
+import moment from 'moment'
 
 interface Props {
 	title: string;
@@ -15,7 +13,7 @@ const { title, description, image = '/blog-placeholder-1.jpg' } = Astro.props
 
 const jsonFrameData = JSON.stringify({
 	version: 'next',
-	imageUrl: 'https://frameify.xyz/icon.png',
+	imageUrl: 'https://frameify.xyz/banners/farcaster-framing.png?' + moment().unix(),
 	button: {
 		title: '「 ✦ Frameify ANY Website ✦ 」',
 		action: {
@@ -23,7 +21,7 @@ const jsonFrameData = JSON.stringify({
 			name: `Frameify by Castr GÜRŲ`,
 			url: 'https://frameify.xyz',
 			splashImageUrl: 'https://frameify.xyz/splash.gif',
-			splashBackgroundColor: '#33cc33',
+			splashBackgroundColor: '#a728b1',
 		}
 	}
 })
