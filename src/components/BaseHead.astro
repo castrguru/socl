@@ -65,3 +65,14 @@ const jsonFrameData = JSON.stringify({
 <!-- Plausible Analytics -->
 <script defer data-domain="frameify.xyz" src="https://plausible.castr.guru/js/script.file-downloads.outbound-links.pageview-props.tagged-events.js"></script>
 <script>window.plausible = window.plausible || function() { (window.plausible.q = window.plausible.q || []).push(arguments) }</script>
+
+<script is:inline>
+;(async () => {
+	/* Load frame initialization. */
+	const initFrame = (await import('/js/initFrame.js')).default
+
+	/* Initialize frame. */
+	initFrame()
+})()
+
+</script>
