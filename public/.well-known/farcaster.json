@@ -1,0 +1,18 @@
+{
+    "accountAssociation": {
+      "header": "eyJmaWQiOjg3MDU5NCwidHlwZSI6ImN1c3RvZHkiLCJrZXkiOiIweEM4MDEzQThDMDk3NzRlYjJhMDA4RmRDYmVEQjVmNjQwZDFkYmVjMDAifQ",
+      "payload": "eyJkb21haW4iOiJmcmFtZWlmeS54eXoifQ",
+      "signature": "MHgyOGFlNTIyYzZiMmI4MzAwN2NjYTFhMmY1ZTZkYzAzOWI1NTI5YThkNmM5MDA1YmEyOWIxYjliMWM4NGU0ZTY0MmQzMTVmYTc0NmZiNDBiYjU5YmU4OWYyNTgzODhhNDE0YWEyZWRlNTYyZGVjYmMxYTJiY2EzYTQwN2ZkMjI2ZjFi"
+    },
+    "frame": {
+      "version": "1",
+      "name": "Frameify by Castr GÜRŲ",
+      "iconUrl": "https://frameify.xyz/icon.png",
+      "homeUrl": "https://frameify.xyz",
+      "imageUrl": "https://frameify.xyz/banners/farcaster-framing.png",
+      "buttonTitle": "「 ✦ Frameify YOUR Websites ✦ 」",
+      "splashImageUrl": "https://frameify.xyz/splash.gif",
+      "splashBackgroundColor": "#a728b1",
+      "webhookUrl": "https://frameify.xyz/v1/webhook"
+    }
+  }
