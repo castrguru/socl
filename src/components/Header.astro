@@ -1,16 +1,25 @@
 ---
 import HeaderLink from './HeaderLink.astro'
 // import { SITE_TITLE } from '../consts'
+import SiteIcon from '../assets/icon.svg'
 ---
 
 <header>
 	<nav class="h-[50px] px-3 py-2 flex justify-around items-center gap-3 border-2 border-sky-500">
-		<h1 class="text-3xl font-bold text-slate-700 tracking-widest">
-			FRAMEIFY
-			<span class="-ml-3 text-xs text-slate-700/50 tracking-tighter">
-				by Castr GÜRŲ
-			</span>
-		</h1>
+		<span class="flex items-center gap-2">
+			<img src={SiteIcon.src} class="size-6" />
+
+			<h1 class="text-3xl font-bold text-slate-700 tracking-widest">
+				<span class="bg-gradient-to-r from-sky-900 to-fuchsia-700 text-transparent bg-clip-text">
+					FRAMEIFY
+				</span>
+
+				<span class="-ml-3 text-xs text-slate-700/50 tracking-tighter">
+					by Castr GÜRŲ
+				</span>
+			</h1>
+		</span>
+
 
 		<div class="hidden sm:flex">
 			<!-- <HeaderLink href="/">Home</HeaderLink> -->
