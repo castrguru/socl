@@ -3,9 +3,7 @@
  *
  * Will hide the Farcaster frame splash screen.
  */
-console.log('LOADED FRAME INIT...')
 export default () => {
-console.log('RUNNING FRAME INIT...')
     /* Generate a message id. */
     const generateMessageId = () => {
         return Array(4)

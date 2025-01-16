@@ -2,11 +2,29 @@
 const today = new Date()
 
 const isShowingFooter = false
+
+// const pathname = Astro.url.pathname
+// console.log('REQUEST', Astro.request)
+// console.log('PATHNAME', pathname)
 ---
 
 {!isShowingFooter &&
-<footer class="h-[50px] border-2 border-green-500">
-	This is NO FOOTER
+<footer class="h-[50px] flex justify-between items-center gap-3 bg-gradient-to-b from-stone-700 to-stone-900 border-t border-amber-600">
+	<div class="p-3">
+		<span class="text-amber-200 font-bold text-xl tracking-widest">
+			DEMO FOOTER
+		</span>
+	</div>
+
+	<div class="px-3 flex gap-4 items-center">
+		<a href="#back" class="px-5 py-1 text-amber-800 text-sm uppercase bg-amber-200 font-bold rounded-2xl hover:bg-amber-700 hover:text-amber-100">
+			back
+		</a>
+
+		<a href="#random" class="px-5 py-1 text-amber-800 text-sm uppercase bg-amber-200 font-bold rounded-2xl hover:bg-amber-700 hover:text-amber-100">
+			random
+		</a>
+	</div>
 </footer>
 }
 
@@ -17,3 +35,100 @@ const isShowingFooter = false
 		<a href="https://castr.guru">Castr GÜRŲ</a>
 	</p>
 </footer>}
+
+<script>
+/* Import modules. */
+import * as fflate from 'fflate'
+
+const _downloadURL = (data, fileName) => {
+	var a
+	a = document.createElement('a')
+	a.href = data
+	a.download = fileName
+	document.body.appendChild(a)
+	// a.style = 'display: none'
+	a.click()
+	a.remove()
+}
+
+const _downloadBlob = (data, fileName, mimeType) => {
+	let blob, url
+	blob = new Blob([data], {
+		type: mimeType
+	})
+	url = window.URL.createObjectURL(blob);
+	_downloadURL(url, fileName);
+	setTimeout(() => {
+		return window.URL.revokeObjectURL(url)
+	}, 1000)
+}
+
+const indexHtml = `
+<h1>Frameify!</h1>
+`
+
+const javaScript = `
+console.log('Welcome to Frameify!')
+`
+
+const json = {
+	hi: 'there!',
+}
+
+const README = `
+FRAMEIFY
+--------
+
+( https://frameify.xyz/ )
+
+Let's get started with Frameify.
+
+`
+
+const zipped = fflate.zipSync({
+	/* Add README. */
+	'index.html': fflate.strToU8(indexHtml),
+
+	/* Add README. */
+	'js/script.js': fflate.strToU8(javaScript),
+
+	/* Add card info. */
+	'info.json': fflate.strToU8(JSON.stringify(json, null, 2)),
+
+	/* Add README. */
+	'README.TXT': fflate.strToU8(README),
+}, {
+	// NOTE: Disables compression.
+	level: 0,
+})
+console.log('ZIPPED', zipped.length, 'bytes')
+// _downloadBlob(zipped, `frameify.zip`, 'application/octet-stream')
+</script>
+
+<script is:inline>
+
+window.addEventListener('hashchange', function() {
+	/* Initialize locals. */
+	let target
+
+	if (location.hash) {
+		/* Set target. */
+		target = location.hash.slice(1)
+	} else {
+		// TODO
+	}
+    console.log('The hash value has changed to: ' + target)
+
+	/* Initialize Iframe reference. */
+	const iFrame = window.document.getElementById('web-stage')
+// console.log('IFRAME', iFrame.src)
+
+	if (iFrame.src === 'https://designmuseum.dk/') {
+		iFrame.src = 'https://steffiedeleeuw.com/'
+	} else {
+		iFrame.src = 'https://designmuseum.dk/'
+	}
+
+})
+
+</script>
