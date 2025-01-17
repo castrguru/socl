@@ -11,12 +11,12 @@ const isShowingFooter = false
 {!isShowingFooter &&
 <footer class="h-[50px] flex justify-between items-center gap-3 bg-gradient-to-b from-stone-700 to-stone-900 border-t border-amber-600">
 	<div class="h-[32px] mx-3 px-4 py-1 flex items-center bg-lime-100 hover:bg-lime-700 rounded-xl">
-		<a href="https://castr.guru/hackathon/" target="_blank" class="sm:hidden text-lime-800 text-base uppercase font-bold hover:text-lime-100">
+		<button id="btn-hackathon" class="sm:hidden text-lime-800 text-base uppercase font-bold hover:text-lime-100">
 			#HACKATHON
-		</a>
-		<a href="https://castr.guru/hackathon/" target="_blank" class="hidden sm:inline text-lime-800 text-base uppercase font-bold hover:text-lime-100">
+		</button>
+		<button id="btn-hackathon" class="hidden sm:inline text-lime-800 text-base uppercase font-bold hover:text-lime-100">
 			#HACKATHON ( WEEK:ONE )
-		</a>
+		</button>
 	</div>
 
 	<div class="px-3 flex items-center divide-x divide-amber-800">
@@ -148,6 +148,16 @@ document.getElementById('btn-home')
 
 		/* Go to homepage. */
 		iFrame.src = 'https://castr.guru'
+		// iFrame.src = 'https://castr.guru/hackathon/'
+	})
+
+document.getElementById('btn-hackathon')
+	.addEventListener('click', function () {
+		/* Initialize Iframe reference. */
+		const iFrame = window.document.getElementById('web-stage')
+
+		/* Go to (weekly hackathon) homepage. */
+		iFrame.src = 'https://weeklyhackathon.com/'
 	})
 
 document.getElementById('btn-random')
