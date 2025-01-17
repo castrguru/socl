@@ -24,9 +24,9 @@ const isShowingFooter = false
 			back
 		</a>
 
-		<a href="#random" class="px-5 py-1 text-amber-800 text-sm uppercase bg-amber-200 font-bold rounded-2xl hover:bg-amber-700 hover:text-amber-100">
+		<button id="btn-random" class="px-5 py-1 text-amber-800 text-sm uppercase bg-amber-200 font-bold rounded-2xl hover:bg-amber-700 hover:text-amber-100">
 			random
-		</a>
+		</button>
 	</div>
 </footer>
 }
@@ -49,7 +49,6 @@ const _downloadURL = (data, fileName) => {
 	a.href = data
 	a.download = fileName
 	document.body.appendChild(a)
-	// a.style = 'display: none'
 	a.click()
 	a.remove()
 }
@@ -64,6 +63,10 @@ const _downloadBlob = (data, fileName, mimeType) => {
 	setTimeout(() => {
 		return window.URL.revokeObjectURL(url)
 	}, 1000)
+}
+
+const gotoRandom = () => {
+	alert('going to random from (regular) script')
 }
 
 const indexHtml = `
@@ -109,7 +112,42 @@ console.log('ZIPPED', zipped.length, 'bytes')
 </script>
 
 <script is:inline>
-window.addEventListener('hashchange', function() {
+/* Initialize "random" sites. */
+// NOTE: Also in `src/pages/index.astro`
+const listRandomSites = [
+	'https://designmuseum.dk/',
+	'https://steffiedeleeuw.com/',
+	'https://www.wikipedia.org/',
+	'https://www.pichiavo.com/',
+	'https://noma.dk/',
+	'https://www.landia.com/los-angeles/',
+	'https://www.caesarstoneus.com/',
+	'https://www.noguchi.org/',
+	'https://quebec.ubisoft.com/en/',
+	'https://raycharles.cydstumpel.nl/',
+	'https://www.artgalleryofballarat.com.au/',
+	'https://tetuhi.art/',
+	'https://fabbricagroup.fr/',
+]
+
+const btnRandom = document.getElementById('btn-random')
+
+btnRandom.addEventListener('click', function () {
+	/* Initialize locals. */
+	let target
+
+	/* Initialize Iframe reference. */
+	const iFrame = window.document.getElementById('web-stage')
+
+	/* Select a random target. */
+	target = listRandomSites[Math.floor(Math.random() * listRandomSites.length)]
+console.log('RANDOM TARGET', target)
+
+	/* Go to a random target. */
+	iFrame.src = target
+})
+
+window.addEventListener('hashchange', function () {
 	/* Initialize locals. */
 	let target
 
@@ -119,17 +157,14 @@ window.addEventListener('hashchange', function() {
 	} else {
 		// TODO
 	}
-    console.log('The hash value has changed to: ' + target)
+console.log('HASH VALUE CHANGED -> ' + target)
+
+// FIXME VALIDATE ADDRESS/TARGET
 
 	/* Initialize Iframe reference. */
 	const iFrame = window.document.getElementById('web-stage')
-// console.log('IFRAME', iFrame.src)
 
-	if (iFrame.src === 'https://designmuseum.dk/') {
-		iFrame.src = 'https://steffiedeleeuw.com/'
-	} else {
-		iFrame.src = 'https://designmuseum.dk/'
-	}
-
+	/* Go to target. */
+	iFrame.src = target
 })
 </script>
