@@ -21,6 +21,11 @@ const isShowingPanel = true
 		<button id="btn-load-target" class="w-fit h-full flex items-center px-5 py-2 bg-amber-400 hover:bg-amber-300 text-2xl font-bold text-amber-800">
 			GO!
 		</button>
+
+		<button id="btn-download" class="w-fit h-full flex items-center px-5 py-2 bg-amber-400 hover:bg-amber-300 text-2xl font-bold text-amber-800">
+			Download
+			<span class="hidden sm:inline"> .ZIP</span>
+		</button>
 	</div>
 </section>
 
@@ -90,49 +95,25 @@ const _downloadBlob = (data, fileName, mimeType) => {
 	}, 1000)
 }
 
-const gotoRandom = () => {
-	alert('going to random from (regular) script')
-}
+// const zipped = fflate.zipSync({
+// 	/* Add README. */
+// 	'index.html': fflate.strToU8(indexHtml),
 
-const indexHtml = `
-<h1>Frameify!</h1>
-`
+// 	/* Add README. */
+// 	'js/script.js': fflate.strToU8(javaScript),
 
-const javaScript = `
-console.log('Welcome to Frameify!')
-`
+// 	/* Add card info. */
+// 	'info.json': fflate.strToU8(JSON.stringify(json, null, 2)),
 
-const json = {
-	hi: 'there!',
-}
-
-const README = `
-FRAMEIFY
---------
-
-( https://frameify.xyz/ )
-
-Let's get started with Frameify.
-
-`
-
-const zipped = fflate.zipSync({
-	/* Add README. */
-	'index.html': fflate.strToU8(indexHtml),
-
-	/* Add README. */
-	'js/script.js': fflate.strToU8(javaScript),
-
-	/* Add card info. */
-	'info.json': fflate.strToU8(JSON.stringify(json, null, 2)),
-
-	/* Add README. */
-	'README.TXT': fflate.strToU8(README),
-}, {
-	// NOTE: Disables compression.
-	level: 0,
-})
-console.log('ZIPPED', zipped.length, 'bytes')
+// 	/* Add README. */
+// 	'README.TXT': fflate.strToU8(README),
+// }, {
+// 	// NOTE: Disables compression.
+// 	level: 0,
+// })
+// console.log('ZIPPED', zipped.length, 'bytes')
+globalThis.downloadBlob = _downloadBlob
+globalThis.fflate = fflate
 // _downloadBlob(zipped, `frameify.zip`, 'application/octet-stream')
 </script>
 
@@ -210,6 +191,55 @@ document.getElementById('btn-random')
 
 		/* Go to a random target. */
 		iFrame.src = target
+	})
+
+document.getElementById('btn-download')
+	.addEventListener('click', function () {
+		/* Set (local) fflate. */
+		const fflate = globalThis.fflate
+
+		const indexHtml = `
+<h1>Frameify!</h1>
+		`
+
+		const javaScript = `
+console.log('Welcome to Frameify!')
+		`
+
+		const json = {
+			hi: 'there!',
+		}
+
+		const README = `
+FRAMEIFY
+--------
+
+( https://frameify.xyz/ )
+
+Let's get started with Frameify.
+		`
+
+		/* Initialize zipped. */
+		const zipped = fflate.zipSync({
+			/* Add README. */
+			'index.html': fflate.strToU8(indexHtml),
+
+			/* Add README. */
+			'js/script.js': fflate.strToU8(javaScript),
+
+			/* Add card info. */
+			'info.json': fflate.strToU8(JSON.stringify(json, null, 2)),
+
+			/* Add README. */
+			'README.TXT': fflate.strToU8(README),
+		}, {
+			// NOTE: Disables compression.
+			level: 0,
+		})
+console.log('ZIPPED', zipped.length, 'bytes')
+
+		/* Download (data) package. */
+		globalThis.downloadBlob(zipped, `frameify-2025-01-17-083200.zip`, 'application/octet-stream')
 	})
 
 document.getElementById('btn-load-target')
