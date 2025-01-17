@@ -1,9 +1,10 @@
 
 console.log(`
-  powered by:
-    ┏┓┳┓┏┓┳┳┓┏┓┳┏┓┓┏
-    ┣ ┣┫┣┫┃┃┃┣ ┃┣ ┗┫
-    ┻ ┛┗┛┗┛ ┗┗┛┻┻ ┗┛
+  「 ✦ your active engagement is powered by ✦ 」
+            ╔═╗╦═╗╔═╗╔╦╗╔═╗╦╔═╗╦ ╦
+            ╠╣ ╠╦╝╠═╣║║║║╣ ║╠╣ ╚╦╝
+            ╚  ╩╚═╩ ╩╩ ╩╚═╝╩╚   ╩
+                      frameify.xyz
 \n`)
 
 console.log('\n  Loading Frameify engine...\n')
