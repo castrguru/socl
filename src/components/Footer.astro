@@ -10,7 +10,7 @@ const isShowingFooter = false
 
 {!isShowingFooter &&
 <footer class="h-[50px] flex justify-between items-center gap-3 bg-gradient-to-b from-stone-700 to-stone-900 border-t border-amber-600">
-	<div class="p-3">
+	<div class="px-3 flex items-center">
 		<a href="https://castr.guru/hackathon/" target="_blank" class="sm:hidden px-5 py-1 text-lime-800 text-sm uppercase bg-lime-200 font-bold rounded-2xl hover:bg-lime-700 hover:text-lime-100">
 			#HACKATHON
 		</a>
@@ -19,12 +19,12 @@ const isShowingFooter = false
 		</a>
 	</div>
 
-	<div class="px-3 flex gap-4 items-center">
-		<a href="#back" class="px-5 py-1 text-amber-800 text-sm uppercase bg-amber-200 font-bold rounded-2xl hover:bg-amber-700 hover:text-amber-100">
+	<div class="px-3 flex items-center divide-x divide-amber-800">
+		<a href="#back" class="px-5 py-1 text-amber-800 text-sm uppercase bg-amber-200 font-bold rounded-2xl rounded-r-none hover:bg-amber-700 hover:text-amber-100">
 			back
 		</a>
 
-		<button id="btn-random" class="px-5 py-1 text-amber-800 text-sm uppercase bg-amber-200 font-bold rounded-2xl hover:bg-amber-700 hover:text-amber-100">
+		<button id="btn-random" class="px-5 py-1 text-amber-800 text-sm uppercase bg-amber-200 font-bold rounded-2xl rounded-l-none hover:bg-amber-700 hover:text-amber-100">
 			random
 		</button>
 	</div>
@@ -130,22 +130,20 @@ const listRandomSites = [
 	'https://fabbricagroup.fr/',
 ]
 
-const btnRandom = document.getElementById('btn-random')
+document.getElementById('btn-random')
+	.addEventListener('click', function () {
+		/* Initialize locals. */
+		let target
 
-btnRandom.addEventListener('click', function () {
-	/* Initialize locals. */
-	let target
+		/* Initialize Iframe reference. */
+		const iFrame = window.document.getElementById('web-stage')
 
-	/* Initialize Iframe reference. */
-	const iFrame = window.document.getElementById('web-stage')
+		/* Select a random target. */
+		target = listRandomSites[Math.floor(Math.random() * listRandomSites.length)]
 
-	/* Select a random target. */
-	target = listRandomSites[Math.floor(Math.random() * listRandomSites.length)]
-console.log('RANDOM TARGET', target)
-
-	/* Go to a random target. */
-	iFrame.src = target
-})
+		/* Go to a random target. */
+		iFrame.src = target
+	})
 
 window.addEventListener('hashchange', function () {
 	/* Initialize locals. */
@@ -164,7 +162,13 @@ console.log('HASH VALUE CHANGED -> ' + target)
 	/* Initialize Iframe reference. */
 	const iFrame = window.document.getElementById('web-stage')
 
-	/* Go to target. */
-	iFrame.src = target
+	/* Validate target. */
+	if (target.includes('https://')) {
+		/* Go to target. */
+		iFrame.src = target
+	} else {
+		/* Go to target. */
+		iFrame.src = 'https://' + target
+	}
 })
 </script>
