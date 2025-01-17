@@ -11,8 +11,16 @@ const isShowingPanel = true
 ---
 
 <section id="frame-panel" class="h-[100px] flex justify-between items-center gap-3 bg-gradient-to-b from-stone-500 to-stone-900 border-t border-amber-900 overflow-hidden">
-	<div>
-		PANEL GOES HERE
+	<div class="h-[40px] flex items-center">
+		<input
+			id="txt-target-url"
+			type="text"
+			class="w-1/2 h-full px-3 py-2 bg-amber-700 text-2xl font-bold text-amber-300 tracking-wider outline-none"
+		/>
+
+		<button id="btn-load-target" class="w-fit h-full flex items-center px-5 py-2 bg-amber-400 hover:bg-amber-300 text-2xl font-bold text-amber-800">
+			GO!
+		</button>
 	</div>
 </section>
 
@@ -202,6 +210,34 @@ document.getElementById('btn-random')
 
 		/* Go to a random target. */
 		iFrame.src = target
+	})
+
+document.getElementById('btn-load-target')
+	.addEventListener('click', function () {
+		/* Initialize locals. */
+		let target
+
+		/* Initialize Iframe reference. */
+		const iFrame = window.document.getElementById('web-stage')
+
+		/* Initialize (target) URL (input) reference. */
+		const txtTargetUrl = window.document.getElementById('txt-target-url')
+
+		/* Set (target) URL. */
+		target = txtTargetUrl.value
+console.log('TARGET URL', target)
+
+		/* Set (location) hash. */
+		window.location.hash = '#' + target
+return
+		/* Validate target. */
+		if (target.includes('https://')) {
+			/* Go to target. */
+			iFrame.src = target
+		} else {
+			/* Go to target. */
+			iFrame.src = 'https://' + target
+		}
 	})
 
 document.getElementById('btn-panel')
