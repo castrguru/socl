@@ -33,6 +33,26 @@ const target = listRandomSites[Math.floor(Math.random() * listRandomSites.length
 	/>
 </Layout>
 
+<script is:inline>
+/* Set target. */
+const target = location.hash?.slice(1)
+
+/* Validate target. */
+if (typeof target !== 'undefined') {
+	/* Initialize Iframe reference. */
+	const iFrame = globalThis.document.getElementById('web-stage')
+
+	/* Validate target. */
+	if (target.includes('https://')) {
+		/* Go to target. */
+		iFrame.src = target
+	} else {
+		/* Go to target. */
+		iFrame.src = 'https://' + target
+	}
+}
+</script>
+
 <style>
 /* iframe::-webkit-scrollbar {
 	width: 4px;
