@@ -194,41 +194,200 @@ document.getElementById('btn-random')
 	})
 
 document.getElementById('btn-download')
-	.addEventListener('click', function () {
+	.addEventListener('click', async function () {
 		/* Set (local) fflate. */
 		const fflate = globalThis.fflate
 
-		const indexHtml = `
-<h1>Frameify!</h1>
-		`
+		const indexHtml = `<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <meta charset="UTF-8" />
+        <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+        <meta name="robots" content="noindex" />
+
+        <title>Frameify!</title>
+
+        <meta name="description" content="description"/>
+        <meta name="author" content="author" />
+        <meta name="keywords" content="keywords" />
+
+        <!-- <link rel="stylesheet" href="./css/tailwind.css" type="text/css" /> -->
+        <link rel="shortcut icon" href="favicon.ico" type="image/vnd.microsoft.icon" />
+
+        <!-- Open Graph -->
+        <meta property="fc:frame" content="{
+            version: 'next',
+            imageUrl: 'https://bread-achieve-device.orbiter.website/img/frameify.png',
+            button: {
+                title: '── ⋆⋅Orbiter 💫 Frameify⋅⋆ ──',
+                action: {
+                    type: 'launch_frame',
+                    name: 'Orbiter Frameify by Castr GÜRŲ',
+                    url: 'https://bread-achieve-device.orbiter.website/',
+                    splashImageUrl: 'https://bread-achieve-device.orbiter.website/img/splash.gif',
+                    splashBackgroundColor: '#efefef',
+                }
+            }
+        }" />
+
+        <!-- Open Graph -->
+        <meta property="og:title" content="Frameify" />
+        <meta property="og:description" content="Toptal enables start-ups, businesses, and organizations to hire freelancers from a growing network of top talent in the world. Find quality talent to work full-time, part-time, or hourly who will seamlessly integrate into your team." />
+        <meta property="og:type" content="website" />
+        <meta property="og:image" content="https://bs-uploads.toptal.io/blackfish-uploads/components/seo/content/og_image_file/og_image/669012/toptal-og-003-cd687102e152d9c03807183158ad30f7.jpg" />
+        <meta property="og:url" content="https://www.toptal.com/" />
+
+        <!-- Twitter / X -->
+        <meta name="twitter:site" content="@toptal" />
+        <meta name="twitter:card" content="summary_large_image" />
+
+        <!-- FIXME We need to include the JS files in-package. -->
+        <script src="https://cdn.tailwindcss.com"><\/script>
+        <script src="js/main.js" type="module"><\/script>
+    </head>
+
+    <body class="w-screen h-screen overflow-hidden bg-gradient-to-r from-stone-700 to-slate-700">
+		<main class="w-full sm:w-[640px] h-full mx-auto flex flex-col justify-between bg-gradient-to-b from-slate-50 to-slate-200 border-x border-slate-100 overflow-hidden">
+
+            <div>
+            	<nav class="h-[50px] px-5 py-2 flex justify-between items-center gap-3 border-b border-slate-300">
+            		<span class="flex items-center gap-2">
+            			<img src="https://frameify.xyz/icon.svg" class="size-6" />
+
+            			<h1 class="text-3xl font-bold text-slate-700 tracking-widest">
+            				<span class="bg-gradient-to-r from-sky-900 to-fuchsia-700 text-transparent bg-clip-text">
+            					FRAMEIFY
+            				</span>
+
+            				<span class="-ml-3 text-xs text-slate-700/50 tracking-tighter">
+            					by Castr GÜRŲ
+            				</span>
+            			</h1>
+            		</span>
+
+            		<div class="flex justify-around gap-4">
+            			<a href="https://x.com/0xShomari" target="_blank">
+            				<span class="sr-only">Follow 0xShomari on Twitter/X</span>
+                            <svg class="size-6 sm:size-7" xmlns="http://www.w3.org/2000/svg" fill="currentColor" viewBox="0 0 512 512">
+                                <path d="M389.2 48h70.6L305.6 224.2 487 464H345L233.7 318.6 106.5 464H35.8L200.7 275.5 26.8 48H172.4L272.9 180.9 389.2 48zM364.4 421.8h39.1L151.1 88h-42L364.4 421.8z" />
+                            </svg>
+            			</a>
+
+            			<a href="https://github.com/castrguru/frameify" target="_blank">
+            				<span class="sr-only">Go to Frameify GitHub repo</span>
+                            <svg class="size-6 sm:size-7" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 496 512">
+                                <path d="M165.9 397.4c0 2-2.3 3.6-5.2 3.6-3.3 .3-5.6-1.3-5.6-3.6 0-2 2.3-3.6 5.2-3.6 3-.3 5.6 1.3 5.6 3.6zm-31.1-4.5c-.7 2 1.3 4.3 4.3 4.9 2.6 1 5.6 0 6.2-2s-1.3-4.3-4.3-5.2c-2.6-.7-5.5 .3-6.2 2.3zm44.2-1.7c-2.9 .7-4.9 2.6-4.6 4.9 .3 2 2.9 3.3 5.9 2.6 2.9-.7 4.9-2.6 4.6-4.6-.3-1.9-3-3.2-5.9-2.9zM244.8 8C106.1 8 0 113.3 0 252c0 110.9 69.8 205.8 169.5 239.2 12.8 2.3 17.3-5.6 17.3-12.1 0-6.2-.3-40.4-.3-61.4 0 0-70 15-84.7-29.8 0 0-11.4-29.1-27.8-36.6 0 0-22.9-15.7 1.6-15.4 0 0 24.9 2 38.6 25.8 21.9 38.6 58.6 27.5 72.9 20.9 2.3-16 8.8-27.1 16-33.7-55.9-6.2-112.3-14.3-112.3-110.5 0-27.5 7.6-41.3 23.6-58.9-2.6-6.5-11.1-33.3 2.6-67.9 20.9-6.5 69 27 69 27 20-5.6 41.5-8.5 62.8-8.5s42.8 2.9 62.8 8.5c0 0 48.1-33.6 69-27 13.7 34.7 5.2 61.4 2.6 67.9 16 17.7 25.8 31.5 25.8 58.9 0 96.5-58.9 104.2-114.8 110.5 9.2 7.9 17 22.9 17 46.4 0 33.7-.3 75.4-.3 83.6 0 6.5 4.6 14.4 17.3 12.1C428.2 457.8 496 362.9 496 252 496 113.3 383.5 8 244.8 8zM97.2 352.9c-1.3 1-1 3.3 .7 5.2 1.6 1.6 3.9 2.3 5.2 1 1.3-1 1-3.3-.7-5.2-1.6-1.6-3.9-2.3-5.2-1zm-10.8-8.1c-.7 1.3 .3 2.9 2.3 3.9 1.6 1 3.6 .7 4.3-.7 .7-1.3-.3-2.9-2.3-3.9-2-.6-3.6-.3-4.3 .7zm32.4 35.6c-1.6 1.3-1 4.3 1.3 6.2 2.3 2.3 5.2 2.6 6.5 1 1.3-1.3 .7-4.3-1.3-6.2-2.2-2.3-5.2-2.6-6.5-1zm-11.4-14.7c-1.6 1-1.6 3.6 0 5.9 1.6 2.3 4.3 3.3 5.6 2.3 1.6-1.3 1.6-3.9 0-6.2-1.4-2.3-4-3.3-5.6-2z" />
+                            </svg>
+            			</a>
+            		</div>
+            	</nav>
+            </div>
+
+            <iframe
+                src="https://designmuseum.dk/"
+                class="web-stage flex-1">
+            </iframe>
+
+            <footer class="h-[50px] flex justify-between items-center gap-3 bg-gradient-to-b from-stone-700 to-stone-900 border-t border-amber-600">
+                <div class="p-3">
+                    <a href="https://castr.guru/hackathon/" target="_blank" class="sm:hidden px-5 py-1 text-lime-800 text-sm uppercase bg-lime-200 font-bold rounded-2xl hover:bg-lime-700 hover:text-lime-100">
+                        #HACKATHON
+                    </a>
+                    <a href="https://castr.guru/hackathon/" target="_blank" class="hidden sm:inline px-5 py-1 text-lime-800 text-sm uppercase bg-lime-200 font-bold rounded-2xl hover:bg-lime-700 hover:text-lime-100">
+                        #HACKATHON ( WEEK:ONE )
+                    </a>
+                </div>
+
+                <div class="px-3 flex gap-4 items-center">
+                    <a href="javascript:Frameify.action1()" class="px-5 py-1 text-amber-800 text-sm uppercase bg-amber-200 font-bold rounded-2xl hover:bg-amber-700 hover:text-amber-100">
+                        action #1
+                    </a>
+
+                    <a href="javascript:Frameify.action2()" class="px-5 py-1 text-amber-800 text-sm uppercase bg-amber-200 font-bold rounded-2xl hover:bg-amber-700 hover:text-amber-100">
+                        action #2
+                    </a>
+                </div>
+            </footer>
+		</main>
+
+        <noscript>
+            Hey, you have JavaScript disabled, that's why you can see this message.
+        </noscript>
+
+    </body>
+</html>`
 
 		const javaScript = `
-console.log('Welcome to Frameify!')
-		`
+console.log('\
+  「 ✦ your active engagement is powered by ✦ 」\
+             ╔═╗╦═╗╔═╗╔╦╗╔═╗╦╔═╗╦ ╦\
+             ╠╣ ╠╦╝╠═╣║║║║╣ ║╠╣ ╚╦╝\
+             ╚  ╩╚═╩ ╩╩ ╩╚═╝╩╚   ╩\
+                           v25.1.17\
+                       frameify.xyz\
+\n')
 
-		const json = {
-			hi: 'there!',
-		}
+console.log('\n  Loading Frameify engine...\n')
+
+const action1 = () => {
+    alert('Action #1')
+}
+
+const action2 = () => {
+    alert('Action #2')
+}
+
+globalThis.Frameify = {
+    action1,
+    action2,
+}`
 
 		const README = `
-FRAMEIFY
---------
+FRAMEIFY README
+===============
 
 ( https://frameify.xyz/ )
 
-Let's get started with Frameify.
+Let's get started with Frameify!
+
 		`
+
+		const info = {
+			hi: 'there!',
+		}
+
+		let buf
+
+		/* Request (remote) asset. */
+		buf = await fetch('https://frameify.xyz/icon.png')
+        	.catch(err => console.error(err))
+
+		/* Convert (blob) to array buffer. */
+    	const sitePng = new Uint8Array(await buf.arrayBuffer())
+
+		/* Request (remote) asset. */
+		buf = await fetch('https://frameify.xyz/splash.gif')
+        	.catch(err => console.error(err))
+
+		/* Convert (blob) to array buffer. */
+    	const splashGif = new Uint8Array(await buf.arrayBuffer())
 
 		/* Initialize zipped. */
 		const zipped = fflate.zipSync({
 			/* Add README. */
 			'index.html': fflate.strToU8(indexHtml),
 
+			/* Add Frameif PNG. */
+			'img/framify.png': [ sitePng, { level: 0 } ],
+
+			/* Add (animated) GIF. */
+			'img/splash.gif': [ splashGif, { level: 0 } ],
+
 			/* Add README. */
-			'js/script.js': fflate.strToU8(javaScript),
+			'js/main.js': fflate.strToU8(javaScript),
 
 			/* Add card info. */
-			'info.json': fflate.strToU8(JSON.stringify(json, null, 2)),
+			'info.json': fflate.strToU8(JSON.stringify(info, null, 2)),
 
 			/* Add README. */
 			'README.TXT': fflate.strToU8(README),
@@ -238,8 +397,17 @@ Let's get started with Frameify.
 		})
 console.log('ZIPPED', zipped.length, 'bytes')
 
+		const d = new Date()
+		const formatted = d.getFullYear() +
+			(d.getMonth() + 1).toString().padStart(2, '0') +
+			d.getDate().toString().padStart(2, '0') +
+			'-' +
+			d.getHours().toString().padStart(2, '0') +
+			d.getMinutes().toString().padStart(2, '0') +
+			d.getSeconds().toString().padStart(2, '0')
+
 		/* Download (data) package. */
-		globalThis.downloadBlob(zipped, `frameify-2025-01-17-083200.zip`, 'application/octet-stream')
+		globalThis.downloadBlob(zipped, `frameify-${formatted}.zip`, 'application/octet-stream')
 	})
 
 document.getElementById('btn-load-target')
