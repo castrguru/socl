@@ -1,4 +1,6 @@
 ---
+import castrGuruIcon from '../assets/castrguru.svg'
+
 const today = new Date()
 
 const isShowingBanner = false
@@ -53,10 +55,11 @@ const isShowingPanel = true
 			</svg>
 		</button>
 
-		<button id="btn-home" class="h-[32px] px-5 py-1 text-amber-800 text-sm uppercase bg-amber-100 font-bold rounded-xl rounded-l-none hover:bg-amber-700 hover:text-amber-100">
-			<svg class="size-6" data-slot="icon" fill="currentColor" viewBox="0 0 20 20" xmlns="http://www.w3.org/2000/svg" aria-hidden="true">
+		<button id="btn-home" class="h-[32px] px-5 py-1 text-amber-800 text-sm uppercase bg-fuchsia-100 font-bold rounded-xl rounded-l-none hover:bg-fuchsia-700 hover:text-amber-100">
+			<img src={castrGuruIcon.src} class="size-5" />
+			{/* <svg class="size-6" data-slot="icon" fill="currentColor" viewBox="0 0 20 20" xmlns="http://www.w3.org/2000/svg" aria-hidden="true">
 				<path clip-rule="evenodd" fill-rule="evenodd" d="M9.293 2.293a1 1 0 0 1 1.414 0l7 7A1 1 0 0 1 17 11h-1v6a1 1 0 0 1-1 1h-2a1 1 0 0 1-1-1v-3a1 1 0 0 0-1-1H9a1 1 0 0 0-1 1v3a1 1 0 0 1-1 1H5a1 1 0 0 1-1-1v-6H3a1 1 0 0 1-.707-1.707l7-7Z"></path>
-			</svg>
+			</svg> */}
 		</button>
 	</div>
 </footer>
