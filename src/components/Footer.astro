@@ -18,15 +18,16 @@ const isShowingPanel = true
 			id="txt-target-url"
 			type="text"
 			placeholder="frame-anything.com"
-			class="flex-1 h-full px-3 py-2 bg-violet-700 text-2xl font-bold text-violet-300 placeholder:text-violet-500/60 tracking-wider outline-none"
+			class="flex-1 w-1/2 sm:w-full h-full px-3 py-2 bg-violet-200 text-2xl font-bold text-violet-700 placeholder:text-violet-500/60 placeholder:text-xl sm:placeholder:text-2xl tracking-wider outline-none"
 		/>
 
-		<button id="btn-load-target" class="flex-0 h-full flex items-center px-5 py-2 bg-violet-400 hover:bg-violet-300 text-2xl font-bold text-violet-800">
+		<button id="btn-load-target" class="flex-0 h-full flex items-center px-5 py-2 bg-violet-200 hover:bg-violet-300 text-2xl font-bold text-violet-800">
 			GO!
 		</button>
 
-		<button id="btn-download" class="flex-0 h-full flex items-center px-5 py-2 bg-violet-400 hover:bg-violet-300 text-2xl font-bold text-violet-800">
-			Download
+		<button id="btn-download" class="flex-0 h-full flex items-center px-5 py-2 bg-violet-200 hover:bg-violet-300 text-2xl font-bold text-violet-800">
+			<span class="sm:hidden">D/L</span>
+			<span class="hidden sm:flex">Download</span>
 		</button>
 	</div>
 
