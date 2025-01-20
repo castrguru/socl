@@ -38,7 +38,7 @@ const target = listRandomSites[Math.floor(Math.random() * listRandomSites.length
 const target = location.hash?.slice(1)
 
 /* Validate target. */
-if (typeof target !== 'undefined') {
+if (typeof target !== 'undefined' && target !== '') {
 	/* Initialize Iframe reference. */
 	const iFrame = globalThis.document.getElementById('web-stage')
 
