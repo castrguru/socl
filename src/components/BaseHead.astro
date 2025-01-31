@@ -62,10 +62,6 @@ const jsonFrameData = JSON.stringify({
 <meta property="twitter:description" content={description} />
 <meta property="twitter:image" content={new URL(image, Astro.url)} />
 
-<!-- Plausible Analytics -->
-<script defer data-domain="frameify.xyz" src="https://plausible.castr.guru/js/script.file-downloads.outbound-links.pageview-props.tagged-events.js"></script>
-<script>window.plausible = window.plausible || function() { (window.plausible.q = window.plausible.q || []).push(arguments) }</script>
-
 <script is:inline>
 ;(async () => {
 	/* Load frame initialization. */
