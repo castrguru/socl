@@ -6,13 +6,13 @@
     },
     "frame": {
       "version": "1",
-      "name": "Frameify",
-      "iconUrl": "https://frameify.xyz/icon-bg.png",
-      "homeUrl": "https://frameify.xyz",
-      "imageUrl": "https://frameify.xyz/banners/farcaster-framing.png",
-      "buttonTitle": "「 ✦ Frameify YOUR Websites ✦ 」",
-      "splashImageUrl": "https://frameify.xyz/splash.gif",
+      "name": "Socl",
+      "iconUrl": "https://socl.site/icon-bg.png",
+      "homeUrl": "https://socl.site",
+      "imageUrl": "https://socl.site/banners/farcaster-framing.png",
+      "buttonTitle": "「 ✦ Socialize YOUR Websites ✦ 」",
+      "splashImageUrl": "https://socl.site/splash.gif",
       "splashBackgroundColor": "#a728b1",
-      "webhookUrl": "https://frameify.xyz/v1/webhook"
+      "webhookUrl": "https://socl.site/v1/webhook"
     }
   }
