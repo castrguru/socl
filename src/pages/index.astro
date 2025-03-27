@@ -2,26 +2,8 @@
 import Welcome from '../components/Welcome.astro'
 import Layout from '../layouts/Framed.astro'
 
-/* Initialize "random" sites. */
-// NOTE: Also in `src/components/Footer.astro`
-const listRandomSites = [
-	'https://designmuseum.dk/',
-	'https://steffiedeleeuw.com/',
-	'https://www.wikipedia.org/',
-	'https://www.pichiavo.com/',
-	'https://noma.dk/',
-	'https://www.landia.com/los-angeles/',
-	'https://www.caesarstoneus.com/',
-	'https://www.noguchi.org/',
-	'https://quebec.ubisoft.com/en/',
-	'https://raycharles.cydstumpel.nl/',
-	'https://www.artgalleryofballarat.com.au/',
-	'https://tetuhi.art/',
-	'https://fabbricagroup.fr/',
-]
-
-/* Select a random target. */
-const target = listRandomSites[Math.floor(Math.random() * listRandomSites.length)]
+/* Specify a starting target. */
+const target = 'https://dayofthedead.holiday/'
 ---
 
 <Layout>
