@@ -1,8 +1,8 @@
 {
     "accountAssociation": {
-      "header": "eyJmaWQiOjg3MDU5NCwidHlwZSI6ImN1c3RvZHkiLCJrZXkiOiIweEM4MDEzQThDMDk3NzRlYjJhMDA4RmRDYmVEQjVmNjQwZDFkYmVjMDAifQ",
-      "payload": "eyJkb21haW4iOiJmcmFtZWlmeS54eXoifQ",
-      "signature": "MHgyOGFlNTIyYzZiMmI4MzAwN2NjYTFhMmY1ZTZkYzAzOWI1NTI5YThkNmM5MDA1YmEyOWIxYjliMWM4NGU0ZTY0MmQzMTVmYTc0NmZiNDBiYjU5YmU4OWYyNTgzODhhNDE0YWEyZWRlNTYyZGVjYmMxYTJiY2EzYTQwN2ZkMjI2ZjFi"
+      "header": "eyJmaWQiOjk1NzM2MCwidHlwZSI6ImN1c3RvZHkiLCJrZXkiOiIweDMxZTQ5MDhlNEYxNzA3ZTBjMDhCNTQwOTYyOUU2YWZlN0Y4NERGYzcifQ",
+      "payload": "eyJkb21haW4iOiJzb2NsLnNpdGUifQ",
+      "signature": "MHgzMjg4MjQ2NGUxN2NkYzhmZTAyYjAzYzM3NWUxMmI1YzRiOWFmZDQxNDJmMWEwMDdhMjNmMWQxZWIwZDRhNjFiNTYxNTFlMTYwMDE3MDZjZDNlYjNmM2JiOGNhOTNmNzc0ZGJjOTI5OWU5NzMyYzk3OGM3MWY3NjE0YmQxMzM1MjFj"
     },
     "frame": {
       "version": "1",
@@ -13,6 +13,6 @@
       "buttonTitle": "「 ✦ Soclsite YOUR Website ✦ 」",
       "splashImageUrl": "https://socl.site/splash.gif",
       "splashBackgroundColor": "#a728b1",
-      "webhookUrl": "https://socl.site/v1/webhook"
+      "webhookUrl": "https://castr.guru/webhook/soclsite"
     }
   }
