@@ -1,4 +1,7 @@
 export function GET(request) {
+    /* Initialize locals. */
+    let siteid
+
     /* Set URL. */
     const url = new URL(request.url)
 // console.log('URL', url)
@@ -6,6 +9,14 @@ export function GET(request) {
     /* Set hostname. */
     const hostname = url.hostname
 // console.log('HOSTNAME', hostname)
+
+    /* Set site ID. */
+    if (hostname === 'socl.site' || hostname === 'socl.website') {
+        siteid = 'soclsite'
+    } else {
+        siteid = hostname // FOR DEV PURPOSES ONLY
+    }
+
 
     /* Build data package. */
     const data = {
@@ -25,7 +36,7 @@ export function GET(request) {
             buttonTitle: '「 ✦ Soclsite YOUR Website ✦ 」',
             splashImageUrl: 'https://socl.site/splash.gif',
             splashBackgroundColor: '#a728b1',
-            webhookUrl: 'https://castr.guru/webhook/soclsite'
+            webhookUrl: `https://castr.guru/webhook/${siteid}`
         }
     }
 
