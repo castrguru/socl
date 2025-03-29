@@ -4,7 +4,7 @@ export function GET(request) {
 
     /* Set URL. */
     const url = new URL(request.url)
-// console.log('URL', url)
+console.log('URL', url)
 
     /* Set hostname. */
     const hostname = url.hostname
@@ -21,6 +21,8 @@ export function GET(request) {
     /* Build data package. */
     const data = {
         DEBUG: 'TESTING SOCLSITE MANIFEST GENERATION',
+        url,
+        href: url.href,
         hostname,
         accountAssociation: {
             header: 'eyJmaWQiOjk1NzM2MCwidHlwZSI6ImN1c3RvZHkiLCJrZXkiOiIweDMxZTQ5MDhlNEYxNzA3ZTBjMDhCNTQwOTYyOUU2YWZlN0Y4NERGYzcifQ',
