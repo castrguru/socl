@@ -1,4 +1,5 @@
 export function GET(request) {
+console.log('REQUEST', request)
     /* Initialize locals. */
     let siteid
 
@@ -20,10 +21,6 @@ console.log('URL', url)
 
     /* Build data package. */
     const data = {
-        DEBUG: 'TESTING SOCLSITE MANIFEST GENERATION',
-        url,
-        href: url.href,
-        hostname,
         accountAssociation: {
             header: 'eyJmaWQiOjk1NzM2MCwidHlwZSI6ImN1c3RvZHkiLCJrZXkiOiIweDMxZTQ5MDhlNEYxNzA3ZTBjMDhCNTQwOTYyOUU2YWZlN0Y4NERGYzcifQ',
             payload: 'eyJkb21haW4iOiJzb2NsLnNpdGUifQ',
