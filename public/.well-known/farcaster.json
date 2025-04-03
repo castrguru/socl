@@ -13,6 +13,6 @@
     "buttonTitle": "「 ✦ Soclsite YOUR Website ✦ 」",
     "splashImageUrl": "https://socl.site/splash.gif",
     "splashBackgroundColor": "#a728b1",
-    "webhookUrl": "https://api.neynar.com/f/app/c1a27f72-2c54-4885-91f5-950c1311f4bd/event"
+    "webhookUrl": "https://webhook.castr.guru/socl.site/event"
   }
 }
