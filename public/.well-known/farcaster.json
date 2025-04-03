@@ -13,6 +13,6 @@
     "buttonTitle": "「 ✦ Soclsite YOUR Website ✦ 」",
     "splashImageUrl": "https://socl.site/splash.gif",
     "splashBackgroundColor": "#a728b1",
-    "webhookUrl": "https://webhook.castr.guru/socl.site/event"
+    "webhookUrl": "https://castrguru-webhook.netlify.app/socl.site"
   }
 }
